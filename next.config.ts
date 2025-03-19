@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
 			"cdn-icons-png.flaticon.com",
 			"wp.badmintonlaorden.es",
 			"192.168.1.33",
+			"51.75.207.217",
 		],
 	},
 	async headers() {

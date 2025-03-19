@@ -7,7 +7,7 @@ import io from "socket.io-client";
 import { useAlert } from "@/context/AlertContext";
 import { Partido } from "@/types/partido";
 
-const socket = io("http://192.168.1.33:3001");
+const socket = io(process.env.NEXT_PUBLIC_SOCKET_SERVER);
 
 const PartidoStream = ({ params }: { params: Promise<{ id: string }> }) => {
 	const { showAlert } = useAlert();
@@ -48,7 +48,6 @@ const PartidoStream = ({ params }: { params: Promise<{ id: string }> }) => {
 		socket.emit("unirsePartido", { idPartido });
 
 		socket.on("infoPartido", (infoPartido) => {
-			console.log(infoPartido);
 			setPartido((prev: Partido) => ({
 				...prev,
 				...infoPartido,
@@ -69,7 +68,7 @@ const PartidoStream = ({ params }: { params: Promise<{ id: string }> }) => {
 					background: transparent !important;
 				}
 			`}</style>
-			<div className="absolute w-[100%] h-auto overflow-hidden bg-transparent">
+			<div className="absolute max-w-[24rem] min-w-[24rem] h-auto overflow-hidden bg-transparent">
 				<Marcador {...partido} />
 			</div>
 		</>

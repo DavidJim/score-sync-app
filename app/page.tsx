@@ -16,7 +16,7 @@ export default function Home() {
 		setLoading(true);
 		try {
 			const response = await fetch(
-				"http://192.168.1.33:3001/api/nuevo-partido",
+				`${process.env.NEXT_PUBLIC_SOCKET_SERVER}/api/nuevo-partido`,
 				{
 					method: "GET",
 					headers: { "Content-Type": "application/json" },
@@ -30,7 +30,6 @@ export default function Home() {
 
 			router.push(`/partido/${partidoId}`);
 		} catch (error: any) {
-			console.error("Error:", error);
 			showAlert(error.toString(), "error");
 		} finally {
 			setLoading(false);
@@ -68,7 +67,7 @@ export default function Home() {
 					{loading ? "Creando..." : "Nuevo partido"}
 				</button>
 				<div className="divider">O</div>
-				<fieldset className="fieldset">
+				<fieldset className="fieldset min-w-[16rem]">
 					<legend className="fieldset-legend">Conéctate a un partido</legend>
 					<input
 						type="text"

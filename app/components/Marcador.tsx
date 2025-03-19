@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Partido } from "@/types/partido";
 const Marcador: React.FC<Partido> = (props) => {
-	console.log(props.puntuacion[0].jugador1);
 	return (
 		<div className={`mx-auto ${"rounded-t-lg"} overflow-hidden text-[0.8rem]`}>
 			{/* Primer Div */}
