@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
 			"wp.badmintonlaorden.es",
 			"192.168.1.33",
 			"51.75.207.217",
+			"badscoring.duckdns.org",
 		],
 	},
 	async headers() {
